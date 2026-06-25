@@ -12,8 +12,8 @@ class Product{
 
     public:
     double getPrice() const { return price; }
-    string getID() { return id; }
-    string getName() { return name; }
+    string getID() const { return id; }
+    string getName() const { return name; }
 
     Product(string i, string n, double p) {
         id = i;

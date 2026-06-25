@@ -65,13 +65,13 @@ Order::Order(Customer ct, Cart c, double ship) : customer(ct), cart(c), shipping
 void Order::Receipt() const {
     cout<<"\n==================== ORDER DETAILS ===================="<<endl;
 
-    cout<<"Order Date          : "<<NgayThanhChuoi(orderDate)<<endl;
-    cout<<"Expected Delivery   : " << NgayThanhChuoi(NgayToi())<<endl;
+    cout<<"Order Date: "<<NgayThanhChuoi(orderDate)<<endl;
+    cout<<"Expected Delivery: "<< NgayThanhChuoi(NgayToi())<<endl;
     cout<<"-------------------------------------------------------"<<endl;
     
-    cout<<"Customer Name       : " << customer.getName()<<endl;
-    cout<<"Phone Number        : " << customer.getPhone()<<endl;
-    cout<<"Delivery Address    : " << customer.getAddress()<<endl;
+    cout<<"Customer Name: " << customer.getName()<<endl;
+    cout<<"Phone Number: " << customer.getPhone()<<endl;
+    cout<<"Delivery Address: " << customer.getAddress()<<endl;
     cout<<"-------------------------------------------------------"<<endl;
 
     cout<<"Items Ordered: "<<endl;
@@ -80,13 +80,12 @@ void Order::Receipt() const {
         Product p = items[i].getProduct();
         double itemCostTotal = p.getPrice() * items[i].getQuantity();
 
-        cout<<"- "<<p.getName()<<" (ID: )"<<p.getID()<<")"<<endl;
-        cout<<"Quantity: "<<items[i].getQuantity()<<" | Price: "<<p.getPrice();
-
-        double totalAmount = cart.calTotal() + shippingCost;
-
-        cout<<"Cart subtotal: "<<cart.calTotal()<<endl;
-        cout<<"Shipping fee: "<<shippingCost<<endl;
-        cout<<"- Total: "<<totalAmount<<endl;
+        cout<<"- "<<p.getName()<<" (ID: "<<p.getID()<<")"<<endl;
+        cout<<"Quantity: "<<items[i].getQuantity()<<" | Price: "<<p.getPrice()<<endl;
     }
+    double totalAmount = cart.calTotal() + shippingCost;
+
+    cout<<"Cart subtotal: "<<cart.calTotal()<<endl;
+    cout<<"Shipping fee: "<<shippingCost<<endl;
+    cout<<"- Total: "<<totalAmount<<endl;
 }

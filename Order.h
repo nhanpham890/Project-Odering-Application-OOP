@@ -30,7 +30,7 @@ private:
 
 public:
     Order(Customer customer, Cart cart, double shippingCost = 25000);
-    ~Order();
+    ~Order() {};
     void Receipt() const;
 };
 

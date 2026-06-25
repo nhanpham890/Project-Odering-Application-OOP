@@ -31,7 +31,7 @@ void Store::saveCustomer(){
             return;
         }
 
-    for(size_t i = 0; customerList.size(); i++){
+    for(size_t i = 0; i < customerList.size(); i++){
         file<<customerList[i].getName()<<"|"
             <<customerList[i].getAddress()<<"|"
             <<customerList[i].getPhone()<<endl;
@@ -51,15 +51,15 @@ void Store::saveOrder(string phone, const Cart& currentCart){
     vector<CartItem> items = currentCart.getItems();
     for(size_t i = 0; i < items.size(); i++){
         Product p = items[i].getProduct();
-        file<<phone<<'|'<<p.getID()<<'|'<<items[i].getQuantity();
+        file<<phone<<'|'<<p.getID()<<'|'<<items[i].getQuantity()<<endl;
     }
 
     file.close();
 }
 
 void Store::showProducts(){
-    cout << "\n============================== Products List ==============================\n";
-    for(size_t i; i < productList.size(); i++){
+    cout<<"\n============================== Products List ==============================\n";
+    for(size_t i = 0 ; i < productList.size(); i++){
         cout<<productList[i];
     }
 }
@@ -67,27 +67,49 @@ void Store::showProducts(){
 void Store::selectProduct(){
     showProducts();
     int quantity;
-    string id;
-
-    cout<<"Typing the ID of the product (HW001)";
-    cin>>id;
-
-    cout<<"Typing the quantity";
-    cin>>quantity;
-
+    string id, strquantity;
     bool flag = false;
-    for(size_t i = 0; i < productList.size(); i++ ){
-        if(productList[i].getID() == id){
-            for(int j; j < quantity; j++){
-                cart.addProduct(productList[i]);
+
+    while(!flag){
+        cout<<"Typing the id of the product or 'Q' to quit: ";
+        cin>>id;
+
+        if(id == "Q" or id == "q"){ 
+            cout<<"- Canceled product selection\n";
+            return;
+        }
+
+       
+        for(size_t i = 0; i < productList.size(); i++ ){
+            if(productList[i].getID() == id){
+                flag = true;
+                
+                while(true){
+                    cout<<"Typing the quantity: ";
+                    cin>>strquantity;
+                    try{
+                        quantity = stoi(strquantity);
+
+                        if(quantity > 0 ){
+                            break;
+                        }else{
+                            cout<<"Enter a number > 0\n";
+                        }
+                    }catch(...){
+                        cout<<"Invalid format! Numbers only\n";
+                    }
+                }
+                for(int j = 0; j < quantity; j++){
+                    cart.addProduct(productList[i]);
+                }
+                break; 
             }
-            flag = true;
-            break;
-        }
+        } 
+
         if(!flag){
-            cout<<"Can not find this id: "<<id<<endl;
+            cout<<"\nCan not find this id: "<<id<<endl;
         }
-    }
+    } 
 }
 
 void Store::viewCart(){
@@ -97,6 +119,7 @@ void Store::viewCart(){
 void Store::checkOut(){
     if(cart.calTotal() == 0){
         cout<<"There is not any products in your cart, please select product for payment!";
+        return;
     }
     
     Customer currentCust;

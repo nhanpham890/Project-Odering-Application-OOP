@@ -13,11 +13,11 @@ class CartItem{
     public:
     CartItem(Product p, int q) : product(p), quantity(q) {}
     
-    Product getProduct(){
+    Product getProduct() const {
         return product;
     }
 
-    int getQuantity(){
+    int getQuantity() const{
         return quantity;
     }
 
