@@ -13,12 +13,16 @@ void Cart::addProduct(Product selectedProduct){
     cout<<"- Product added to cart!";
 }
 
-float Cart::calTotal(){
-    float total = 0;
+double Cart::calTotal() const{
+    double total = 0;
     for (int i = 0; i < items.size(); i++){
         total += items[i].getCostTotal();
     }
     return total;
+}
+
+vector<CartItem> Cart::getItems() const{
+    return items;
 }
 
 void Cart::displayCart(){

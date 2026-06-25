@@ -15,7 +15,9 @@ public:
         : name(n), phone(p), address(a) {}
 
     string getName() const { return name; }
+
     string getPhone() const { return phone; }
+
     string getAddress() const { return address; }
 
     friend istream& operator>>(istream& is, Customer& c) {
@@ -29,7 +31,7 @@ public:
     }
 
     friend ostream& operator<<(ostream& os, const Customer& c) {
-        os << "Ten: " << c.name << ", SDT: " << c.phone << ", Dia chi: " << c.address;
+        os << "Ten: " << c.name <<endl<< "SDT: " << c.phone<<endl<< "Dia chi: " << c.address<<endl;
         return os;
     }
 };

@@ -11,10 +11,7 @@ class CartItem{
     int quantity;
 
     public:
-    CartItem(Product p, int q){
-        p = product;
-        q = quantity;
-    }
+    CartItem(Product p, int q) : product(p), quantity(q) {}
     
     Product getProduct(){
         return product;
@@ -28,7 +25,7 @@ class CartItem{
         quantity = amount + 1;
     }
 
-    float getCostTotal(){
+    double getCostTotal() const{
         return product.getPrice() * quantity;
     }
 };
@@ -38,7 +35,9 @@ class Cart{
     vector<CartItem> items;
 
     public:
+    vector<CartItem> getItems() const;
     void addProduct(Product selectedProduct);
-    float calTotal();
+    double calTotal() const;
     void displayCart();
+    void cartClear() { items.clear(); };
 };

@@ -6,12 +6,21 @@ using namespace std;
 
 class Product{
     private:
-    int id;
+    string id;
     string name;
-    float price;
+    double price;
 
     public:
-    float getPrice();
+    double getPrice() const { return price; }
+    string getID() { return id; }
+    string getName() { return name; }
+
+    Product(string i, string n, double p) {
+        id = i;
+        name = n;
+        price = p;
+    }
+
     bool operator==(const Product& other) const {
         return this->id == other.id;
     }

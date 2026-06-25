@@ -1,0 +1,10 @@
+HW001|Samsung 870 EVO V-NAND SSD 1TB|85.50
+HW002|Card man hinh VGA NVIDIA RTX 4070 Ti|799.00
+HW003|May chu HPE ProLiant DL380 Gen10|2500.00
+HW004|Ban phim co Razer BlackWidow V4|169.99
+HW005|Chuot Gaming Logitech G502 Hero|45.00
+HW006|Man hinh LG UltraGear 27 inch 144Hz|299.50
+HW007|RAM Corsair Vengeance 32GB DDR5|120.00
+HW008|CPU Intel Core i7-14700K|400.00
+HW009|Vo case Corsair 4000D Airflow|90.00
+HW010|Tai nghe khong day HyperX Cloud II|110.00
