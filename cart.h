@@ -22,7 +22,7 @@ class CartItem{
     }
 
     void increaseQuantity(int amount = 1){
-        quantity = amount + 1;
+        quantity += amount;
     }
 
     double getCostTotal() const{

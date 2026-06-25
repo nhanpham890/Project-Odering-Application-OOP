@@ -29,7 +29,7 @@ private:
     Date NgayToi() const;
 
 public:
-    Order(Customer customer, Cart cart, double shippingCost = 25000);
+    Order(const Customer& ct, const Cart& c, double ship = 25000);
     ~Order() {};
     void Receipt() const;
 };

@@ -1,4 +1,4 @@
-#include <Order.h>
+#include "Order.h"
 
 bool Order::Namnhuan(int year) const {
     return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
@@ -58,9 +58,9 @@ Date Order::NgayToi() const {
     return addDays(orderDate, 3);
 }
 
-Order::Order(Customer ct, Cart c, double ship) : customer(ct), cart(c), shippingCost(ship) {
-    orderDate = NgayHientai();
-}
+Order::Order(const Customer& ct, const Cart& c, double ship) 
+    : customer(ct), cart(c), shippingCost(ship) 
+    { }
 
 void Order::Receipt() const {
     cout<<"\n==================== ORDER DETAILS ===================="<<endl;

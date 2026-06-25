@@ -28,7 +28,7 @@ class Product{
     friend ostream& operator<<(ostream& os, const Product& p) {
         os << left << setw(10) << p.id 
            << "| " << setw(40) << p.name 
-           << "| $" << fixed << setprecision(2) << p.price;
+           << "| $" << fixed << setprecision(2)<<p.price<<endl;
         return os; 
     }
 };

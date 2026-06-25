@@ -1,4 +1,4 @@
-#include <store.h>
+#include "store.h"
 
 void Store::loadProducts(string filename){
     ifstream file(filename);
@@ -79,7 +79,6 @@ void Store::selectProduct(){
             return;
         }
 
-       
         for(size_t i = 0; i < productList.size(); i++ ){
             if(productList[i].getID() == id){
                 flag = true;
