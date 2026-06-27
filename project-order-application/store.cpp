@@ -205,7 +205,7 @@ void Store::cancelOrder( ){
 
     while (!orderToCancel.empty())
     {
-        cout<<"Product that odered with: "<<phoneCheck<<endl;
+        cout<<endl<<"Product that odered with: "<<phoneCheck<<endl;
         for(size_t i = 0; i < orderToCancel.size(); i++){
         size_t pos1 = orderToCancel[i].find('|');
         size_t pos2 = orderToCancel[i].find('|', pos1 + 1);
@@ -264,8 +264,8 @@ void Store::cancelOrder( ){
         }
 
         if(!found){
-            cout<<"Can not find this product ID: "<<cancelID;
-            cout<<"Try again";
+            cout<<"Can not find this product ID: "<<cancelID<<endl;
+            cout<<"Try again"<<endl;
             }
     }
     ofstream fileOut("order.txt");
