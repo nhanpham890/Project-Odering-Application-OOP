@@ -9,8 +9,9 @@ void displayMenu(){
     cout<<"  2. Select a product to buy\n";
     cout<<"  3. View your cart\n";
     cout<<"  4. Checkout or Print Receipt\n";
-    cout<<"  5. Exit\n\n";
-    cout<<"Please enter your choice (1-5): ";
+    cout<<"  5. Cancel the orders\n";
+    cout<<"  6. Exit\n\n";
+    cout<<"Please enter your choice (1-6): ";
 }
 
 int main(){
@@ -22,7 +23,7 @@ int main(){
         displayMenu();
 
         if(!(cin>>choice)){
-            cout<<"\n[!] Invalid input! Please enter a number.\n";
+            cout<<"\nInvalid input! Please enter a number\n";
             cin.clear();             
             cin.ignore(10000, '\n'); 
             continue;                
@@ -42,6 +43,9 @@ int main(){
                 myStore.checkOut();
                 break;
             case 5:
+                myStore.cancelOrder();
+                break;
+            case 6:
                 cout<<"\nThank you for shopping with us! Goodbye!\n";
                 return 0; 
             default:

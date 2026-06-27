@@ -3,7 +3,6 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include <sstream>
 
 #include "product.h"
 #include "cart.h"
@@ -26,4 +25,6 @@ class Store{
     void selectProduct();
     void viewCart();
     void checkOut();
+    string checkPhone();
+    void cancelOrder();
 };
