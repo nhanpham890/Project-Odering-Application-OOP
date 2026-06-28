@@ -1,5 +1,7 @@
 #include "Order.h"
-
+#include <string>
+#include <ctime>
+#include "Vipcustomer.h"
 bool Order::Namnhuan(int year) const {
     return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 }
@@ -16,6 +18,13 @@ int Order::Dungngay(int month, int year) const {
     }
     return result;
 }
+
+Order::Order(const Customer& ct, const Cart& c, double ship) 
+    : customer(ct), cart(c), shippingCost(ship) 
+{
+    orderDate = NgayHientai();
+}
+
 
 Date Order::addDays(Date date, int days) const {
     date.day += days;
@@ -58,10 +67,7 @@ Date Order::NgayToi() const {
     return addDays(orderDate, 3);
 }
 
-Order::Order(const Customer& ct, const Cart& c, double ship) 
-    : customer(ct), cart(c), shippingCost(ship) 
-    { }
-
+	
 void Order::Receipt() const {
     cout<<"\n==================== ORDER DETAILS ===================="<<endl;
 
