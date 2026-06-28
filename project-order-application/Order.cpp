@@ -60,7 +60,9 @@ Date Order::NgayToi() const {
 
 Order::Order(const Customer& ct, const Cart& c, double ship) 
     : customer(ct), cart(c), shippingCost(ship) 
-    { }
+    { 
+        orderDate = NgayHientai();
+    }
 
 void Order::Receipt() const {
     cout<<"\n==================== ORDER DETAILS ===================="<<endl;

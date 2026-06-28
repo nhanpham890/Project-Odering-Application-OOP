@@ -1,0 +1,1 @@
+ date.day   -= Dungngay(date.month, date.year)
