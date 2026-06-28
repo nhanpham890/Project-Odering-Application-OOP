@@ -118,25 +118,41 @@ void Store::viewCart(){
 
 void Store::checkOut(){
     if(cart.calTotal() == 0){
-        cout<<"There is not any products in your cart, please select product for payment!";
+        cout << "Cart is empty\n";
         return;
     }
-    
-    Customer currentCust;
-    cout<<"Customer Information Registration\n";
-    cin>>currentCust;
 
-    customerList.push_back(currentCust);
-    saveCustomer();
+    string Vip;
+    cout << "Are you a VIP member?  ";
+    cin >> Vip;
+    cin.ignore(100, '\n');
+    if(Vip == "y" || Vip == "Y"){
+        Vipcustomer v;
+        cin >> v;
+        double total = cart.calTotal();
+        double discountedTotal = v.applyDiscount(total);
+        Order finalOrder(v, cart, 0);
+        cout << "\n===== VIP BENEFITS APPLIED =====\n";
+        cout << "Name:     " << v.getName()               << "\n";  
+        cout << "Address:  " << v.getAddress()            << "\n";  
+        cout << "Phone:    " << v.getPhone()              << "\n";
+        cout << "Date: " << finalOrder.getOrderDate() << "\n";
+        cout << "Expected Delivery: " << finalOrder.getDeliveryDate()   << "\n";
+        cout << "Total:      " << total << "\n";
+		cout << "After 20% :"   << discountedTotal << "\n";
+        cout << "Shipping:  Free\n";
 
-    saveOrder(currentCust.getPhone(), cart);
-    double shippingCost = 25000;
-    Order finalOrder(currentCust, cart, shippingCost);
-    finalOrder.Receipt();
+    } else {
+        Customer c;
+        cin >> c;
+
+        double shippingCost = 2.5;
+        Order finalOrder(c, cart, shippingCost);
+        finalOrder.Receipt();
+    }
 
     cart.cartClear();
-    cout<<"- Successful! Your cart has been cleared\n";
-
+    cout << "- Successful! Your cart has been cleared\n";
 }
 
 string Store::checkPhone(){
