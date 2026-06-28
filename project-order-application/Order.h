@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <iostream>
+#include "Vipcustomer.h"
 using namespace std;
 
 struct Date {
@@ -32,6 +33,8 @@ public:
     Order(const Customer& ct, const Cart& c, double ship = 25000);
     ~Order() {};
     void Receipt() const;
+    string getOrderDate()    const { return NgayThanhChuoi(orderDate); }
+    string getDeliveryDate() const { return NgayThanhChuoi(NgayToi()); }
 };
 
 
