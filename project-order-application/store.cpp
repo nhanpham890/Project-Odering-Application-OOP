@@ -3,7 +3,7 @@
 void Store::loadProducts(string filename){
     ifstream file(filename);
     if(!file){
-        cout<<"can not open this file name:  "<<filename<<endl;
+        cout<<"Can not open this file name:  "<<filename<<endl;
         return;
     }
 
